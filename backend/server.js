@@ -8,7 +8,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
@@ -19,7 +18,6 @@ mongoose
     console.log(error);
   });
 
-// Bug structure
 const bugSchema = new mongoose.Schema({
   id: String,
   title: String,
@@ -30,18 +28,15 @@ const bugSchema = new mongoose.Schema({
 
 const Bug = mongoose.model("Bug", bugSchema);
 
-// Home route
 app.get("/", (req, res) => {
   res.send("BugTrack backend is running!");
 });
 
-// Get all bugs
 app.get("/bugs", async (req, res) => {
   const bugs = await Bug.find();
   res.json(bugs);
 });
 
-// Create a new bug
 app.post("/bugs", async (req, res) => {
   const newBug = new Bug({
     id: req.body.id,
@@ -56,7 +51,6 @@ app.post("/bugs", async (req, res) => {
   res.json(newBug);
 });
 
-// Update bug status
 app.put("/bugs/:id", async (req, res) => {
   const updatedBug = await Bug.findOneAndUpdate(
     { id: req.params.id },
