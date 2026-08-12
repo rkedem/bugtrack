@@ -1,16 +1,89 @@
-# React + Vite
+# BugTrack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BugTrack is a QA management web application that I built to practice software testing, bug tracking, and full-stack web development.
 
-Currently, two official plugins are available:
+The application allows users to create and manage software bugs and test cases. It also includes a dashboard where users can quickly see information about reported bugs and testing activity.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+### Bug Tracking
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Users can create bugs and keep track of reported issues.
 
-## Expanding the ESLint configuration
+Each bug can include information such as:
+- Bug title
+- Description
+- Severity
+- Status
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Users can also update the status of a bug as it moves through the testing process.
+
+### Search
+
+The application includes a search feature that makes it easier to find reported bugs.
+
+### Test Cases
+
+Users can create test cases and track their testing status.
+
+Test cases can be marked as:
+- Not Run
+- Passed
+- Failed
+
+This makes it easier to keep track of which tests have already been completed.
+
+### Dashboard
+
+The dashboard gives a quick overview of the QA process and displays information about bugs and testing activity.
+
+## Technologies Used
+
+### Frontend
+
+- React
+- JavaScript
+- CSS
+- Vite
+
+### Backend
+
+- Node.js
+- Express.js
+
+### Database
+
+- MongoDB
+- Mongoose
+
+## How the Application Works
+
+The frontend was built with React and provides the user interface for managing bugs and test cases.
+
+The frontend sends requests to the Express backend when bug information needs to be created, retrieved, or updated.
+
+The backend connects to MongoDB using Mongoose and stores the bug data in the database.
+
+The basic flow of the application is:
+
+User → React Frontend → Express Backend → MongoDB
+
+## Project Structure
+
+The project contains two main folders:
+
+### frontend
+
+Contains the React application and user interface.
+
+### backend
+
+Contains the Express server, API routes, and MongoDB connection.
+
+## Running the Project
+
+First, install the backend dependencies:
+
+```bash
+cd backend
+npm install
